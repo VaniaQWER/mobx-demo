@@ -21,16 +21,25 @@ class Login extends Component {
     return (
       <div>
         <div>
-          username: <input onInput={event => {
-            event.persist();
-            this._onInput(event);
-          }} name='username'/>
+          username: 
+          <input 
+            onInput={event => {
+              event.persist();
+              this._onInput(event);
+            }} 
+            defaultValue={userStore.currentUser.username}
+            name='username'/>
         </div>
         <div>
-          alias: <input onInput={event => {
-            event.persist();
-            this._onInput(event);
-          }} name='alias'/>
+          alias: 
+          <input 
+            onInput={event => {
+              event.persist();
+              this._onInput(event);
+            }} 
+            defaultValue={userStore.currentUser.alias}
+            name='alias'
+          />
         </div>
         <div>
           <button onClick={() => {
