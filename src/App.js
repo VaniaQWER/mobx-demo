@@ -1,27 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { PureComponent } from 'react';
+import { Provider } from 'mobx-react';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import stores from './stores';
 
-class App extends Component {
+import Login from './routes/login';
+import SuccessPage from './routes/success';
+
+class App extends PureComponent {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <Provider {...stores}>
+        <Router>
+          <Switch>
+            <Route exact path="/login" component={Login} />
+            <Route exact path='/success' component={SuccessPage}/>
+          </Switch>
+        </Router>
+      </Provider>
+    )
   }
 }
 
