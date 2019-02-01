@@ -8,9 +8,15 @@ class SuccessPage extends Component {
   render() {
     const { utilsStore, userStore  } = this.props;
     return (
-      <p>
+      <div>
+        <button>
+          点击修改keywords
+        </button>
         { utilsStore.message }, 欢迎 { userStore.currentUser && userStore.currentUser.username }
-      </p>
+        <br/>
+        <div>keywords：{ userStore.keywords}</div>
+        <div>after update keywords: { userStore.updateKeyWords }</div>
+      </div>
     )
   }
 }
